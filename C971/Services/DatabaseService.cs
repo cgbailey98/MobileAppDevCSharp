@@ -29,19 +29,194 @@ namespace C971.Services
         }
         #region Term methods
 
+        public static async Task AddTerm(string name, DateTime startDate, DateTime endDate, List<Course> courses)
+        {
+            await Init();
+            var term = new Term()
+            {
+                Name = name,
+                StartDate = startDate,
+                EndDate = endDate,
+            };
+
+            await _db.InsertAsync(term);
+
+            var id = term.Id;
+        }
+
+        public static async Task RemoveTerm(int id)
+        {
+            await Init();
+
+            await _db.DeleteAsync<Term>(id);
+        }
+
+        public static async Task<IEnumerable<Term>> GetTerms()
+        {
+            await Init();
+
+            var terms = await _db.Table<Term>().ToListAsync();
+            return terms;
+        }
+
+        public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate,
+            List<Course> courses)
+        {
+            await Init();
+
+            var termQuery = await _db.Table<Term>()
+                .Where(t => t.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (termQuery != null)
+            {
+                termQuery.Name = name;
+                termQuery.StartDate = startDate;
+                termQuery.EndDate = endDate;
+
+                await _db.UpdateAsync(termQuery);
+            }
+        }
 
 
         #endregion
 
         #region Course methods
 
+        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate,
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType,
+            List<Assessment> assessments)
+        {
+            await Init();
+
+            var course = new Course
+            {
+                TermId = termId,
+                Name = name,
+                StartDate = startDate,
+                EndDate = endDate,
+                InstructorName = instructorName,
+                InstructorPhone = instructorPhone,
+                InstructorEmail = instructorEmail,
+                Status = statusType,
+                Assessments = assessments
+            };
+
+            await _db.InsertAsync(course);
+
+            var id = course.Id;
+        }
+
+        public static async Task RemoveCourse(int id)
+        {
+            await Init();
+
+            await _db.DeleteAsync<Course>(id);
+        }
+
+        public static async Task<IEnumerable<Course>> GetCourses(int termId)
+        {
+            await Init();
+
+            var courses = await _db.Table<Course>().Where(c => c.TermId == termId).ToListAsync();
+
+            return courses;
+        }
+
+        public static async Task<IEnumerable<Course>> GetCourses()
+        {
+            await Init();
+
+            var courses = await _db.Table<Course>().ToListAsync();
+
+            return courses;
+        }
+
+        public static async Task UpdateCourse(int id, string name, DateTime startDate, DateTime endDate,
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType,
+            List<Assessment> assessments)
+        {
+            await Init();
+
+            var courseQuery = await _db.Table<Course>()
+                .Where(c => c.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (courseQuery != null)
+            {
+                courseQuery.Name = name;
+                courseQuery.StartDate = startDate;
+                courseQuery.EndDate = endDate;
+                courseQuery.InstructorName = instructorName;
+                courseQuery.InstructorPhone = instructorPhone;
+                courseQuery.InstructorEmail = instructorEmail;
+                courseQuery.Status = statusType;
+                courseQuery.Assessments = assessments;
+
+                await _db.UpdateAsync(courseQuery);
+            }
+        }
 
 
         #endregion
 
         #region Assessment methods
 
-        
+        public static async Task AddAssessment(int courseId, string name, DateTime startDate, DateTime endDate,
+            Assessment.AssessmentType assessmentType)
+        {
+            await Init();
+
+            var assessment = new Assessment
+            {
+                CourseId = courseId,
+                Name = name,
+                StartDate = startDate,
+                EndDate = endDate,
+                Type = assessmentType
+            };
+
+            await _db.InsertAsync(assessment);
+
+            var id = assessment.Id;
+        }
+
+        public static async Task RemoveAssessment(int id)
+        {
+            await Init();
+
+            await _db.DeleteAsync<Assessment>(id);
+        }
+
+        public static async Task<IEnumerable<Assessment>> GetAssessments(int courseId)
+        {
+            await Init();
+
+            var assessments = await _db.Table<Assessment>().Where(a => a.CourseId == courseId).ToListAsync();
+
+            return assessments;
+        }
+
+        public static async Task UpdateAssessment(int id, string name, DateTime startDate, DateTime endDate,
+            Assessment.AssessmentType assessmentType)
+        {
+            await Init();
+
+            var assessmentQuery = await _db.Table<Assessment>()
+                .Where(a => a.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (assessmentQuery != null)
+            {
+                assessmentQuery.Name = name;
+                assessmentQuery.StartDate = startDate;
+                assessmentQuery.EndDate = endDate;
+                assessmentQuery.Type = assessmentType;
+
+                await _db.UpdateAsync(assessmentQuery);
+            }
+        }
+
 
         #endregion
     }
