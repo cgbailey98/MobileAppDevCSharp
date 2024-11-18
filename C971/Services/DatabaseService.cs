@@ -219,5 +219,85 @@ namespace C971.Services
 
 
         #endregion
+
+        #region DemoData
+
+        public static async void LoadSampleData()
+        {
+            await Init();
+            Term term = new Term
+            {
+                Name = "Term 1",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddMonths(6),
+            };
+
+            await _db.InsertAsync(term);
+
+            Course course = new Course
+            {
+                TermId = term.Id,
+                Name = "Intro to Math",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddMonths(6),
+                InstructorName = "Anika Patel",
+                InstructorPhone = "555-123-4567",
+                InstructorEmail = "anika.patel@strimeuniversity.edu",
+                Status = Course.StatusType.Planned,
+                Assessments = new List<Assessment>(), //TODO figure out if this is the right way of displaying the assessments or if I even need to do this.
+            };
+
+            await _db.InsertAsync(course);
+
+            Course course2 = new Course
+            {
+                TermId = term.Id,
+                Name = "Intro to Technology",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddMonths(6),
+                InstructorName = "Anika Patel",
+                InstructorPhone = "555-123-4567",
+                InstructorEmail = "anika.patel@strimeuniversity.edu",
+                Status = Course.StatusType.Planned,
+                Assessments = new List<Assessment>(),
+            };
+
+            await _db.InsertAsync(course2);
+        }
+
+        public static async Task ClearSampleData()
+        {
+            await Init();
+
+            await _db.DropTableAsync<Term>();
+            await _db.DropTableAsync<Course>();
+
+            _db = null;
+
+            Settings.ClearSettings();
+        }
+
+        #endregion
+
+        #region Count Determinations
+
+        public static async Task<int> GetCourseCountAsync(int selectedTermId)
+        {
+            //TODO getting a course count from a table
+
+            //int courseCount =
+            //    await _db.ExecuteScalarAsync<int>("Select Count(*) from Course where TermId = '" + selectedTermId +
+            //                                      "'");
+            //int courseCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Course WHERE TermId = '{selectedTermId}'");
+            int courseCount =
+                await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Course WHERE TermId = ?", selectedTermId);
+            //int courseCount = await _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Course");
+            //var objectiveCount = await _conn.QueryAsync<Assessment>($"SELECT Type FROM Assessments WHERE Course = '{_course.Id}' AND Type = 'Objective'");
+            //var performanceCount = await _conn.QueryAsync<Assessment>($"SELECT Type FROM Assessments WHERE Course = '{_course.Id}' AND Type = 'Performance'");
+
+            return courseCount;
+        }
+
+        #endregion
     }
 }

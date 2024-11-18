@@ -1,0 +1,89 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = C971
+build_property.ProjectDir = C:\MobileAppDevCSharp\C971\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/MobileAppDevCSharp/C971/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/MobileAppDevCSharp/C971/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/MobileAppDevCSharp/C971/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/AssessmentAdd.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.AssessmentAdd.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AssessmentAdd.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AssessmentAdd.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/AssessmentEdit.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.AssessmentEdit.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AssessmentEdit.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AssessmentEdit.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/AssessmentList.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.AssessmentList.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AssessmentList.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AssessmentList.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/CourseAdd.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.CourseAdd.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseAdd.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseAdd.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/CourseEdit.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.CourseEdit.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseEdit.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseEdit.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/CourseList.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.CourseList.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CourseList.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CourseList.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/TermAdd.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.TermAdd.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TermAdd.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TermAdd.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/TermEdit.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.TermEdit.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TermEdit.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TermEdit.xaml
+
+[C:/MobileAppDevCSharp/C971/Views/TermList.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971.Views.TermList.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TermList.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TermList.xaml
