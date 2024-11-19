@@ -27,6 +27,7 @@ namespace C971.Services
             await _db.CreateTableAsync<Course>();
             await _db.CreateTableAsync<Assessment>();
         }
+
         #region Term methods
 
         public static async Task AddTerm(string name, DateTime startDate, DateTime endDate) // List<Course> courses
@@ -83,8 +84,7 @@ namespace C971.Services
         #region Course methods
 
         public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate,
-            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType,
-            List<Assessment> assessments)
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType) //List<Assessment> assessments
         {
             await Init();
 
@@ -98,7 +98,7 @@ namespace C971.Services
                 InstructorPhone = instructorPhone,
                 InstructorEmail = instructorEmail,
                 Status = statusType,
-                Assessments = assessments
+                //Assessments = assessments
             };
 
             await _db.InsertAsync(course);
@@ -132,8 +132,7 @@ namespace C971.Services
         }
 
         public static async Task UpdateCourse(int id, string name, DateTime startDate, DateTime endDate,
-            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType,
-            List<Assessment> assessments)
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType) //List<Assessment> assessments
         {
             await Init();
 
@@ -150,7 +149,7 @@ namespace C971.Services
                 courseQuery.InstructorPhone = instructorPhone;
                 courseQuery.InstructorEmail = instructorEmail;
                 courseQuery.Status = statusType;
-                courseQuery.Assessments = assessments;
+                //courseQuery.Assessments = assessments;
 
                 await _db.UpdateAsync(courseQuery);
             }
