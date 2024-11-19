@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\MobileAppDevCSharp\\C971\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\termedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termedit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,30 +42,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "TermEdit.xaml",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermEdit.xaml",
               "RelativeDocumentMoniker": "Views\\TermEdit.xaml",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Views\\TermEdit.xaml",
               "RelativeToolTip": "Views\\TermEdit.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAkAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-18T23:23:31.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TermEdit.xaml.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermEdit.xaml.cs",
               "RelativeDocumentMoniker": "Views\\TermEdit.xaml.cs",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Views\\TermEdit.xaml.cs",
               "RelativeToolTip": "Views\\TermEdit.xaml.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAcwB0AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T23:23:35.866Z",
               "EditorCaption": ""
@@ -90,14 +90,14 @@
               "RelativeDocumentMoniker": "Models\\Term.cs",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Models\\Term.cs",
               "RelativeToolTip": "Models\\Term.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T21:53:04.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Models\\Course.cs",
               "RelativeDocumentMoniker": "Models\\Course.cs",
@@ -116,33 +116,33 @@
               "RelativeDocumentMoniker": "Services\\DatabaseService.cs",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Services\\DatabaseService.cs",
               "RelativeToolTip": "Services\\DatabaseService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcBAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowD0AAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T03:07:34.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TermList.xaml",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml",
               "RelativeDocumentMoniker": "Views\\TermList.xaml",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml",
               "RelativeToolTip": "Views\\TermList.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-17T02:34:07.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "TermList.xaml.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml.cs",
               "RelativeDocumentMoniker": "Views\\TermList.xaml.cs",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml.cs",
               "RelativeToolTip": "Views\\TermList.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAhwF0AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T03:00:03.163Z",
               "EditorCaption": ""

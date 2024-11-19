@@ -15,6 +15,6 @@ namespace C971.Models
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(1);
 
-        public List<Course> Courses { get; set; } = new List<Course>();
+        //public List<Course> Courses { get; set; } = new List<Course>();
     }
 }

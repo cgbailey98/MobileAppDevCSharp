@@ -1,1 +1,0 @@
-C:\MobileAppDevCSharp\C971\C971.csproj;x64

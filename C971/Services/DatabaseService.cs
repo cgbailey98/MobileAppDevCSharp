@@ -59,8 +59,7 @@ namespace C971.Services
             return terms;
         }
 
-        public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate,
-            List<Course> courses)
+        public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate) //List<Course> courses
         {
             await Init();
 
