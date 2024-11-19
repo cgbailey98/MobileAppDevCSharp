@@ -29,7 +29,7 @@ namespace C971.Services
         }
         #region Term methods
 
-        public static async Task AddTerm(string name, DateTime startDate, DateTime endDate, List<Course> courses)
+        public static async Task AddTerm(string name, DateTime startDate, DateTime endDate) // List<Course> courses
         {
             await Init();
             var term = new Term()
