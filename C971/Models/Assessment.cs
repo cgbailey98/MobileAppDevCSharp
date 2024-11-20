@@ -20,8 +20,8 @@ namespace C971.Models
         public int Id { get; set; }
         public int CourseId { get; set; }
         public string Name { get; set; } = string.Empty;
-        public AssessmentType Type { get; set; } = AssessmentType.None;
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(1);
+        public AssessmentType Type { get; set; } = AssessmentType.None;
     }
 }

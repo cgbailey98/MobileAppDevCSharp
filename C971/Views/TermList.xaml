@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971.Views.TermList"
-             Title="TermList">
+             Title="Term List">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="AddTerm" Text="Add Term" Clicked="AddTerm_OnClicked"></ToolbarItem>
         <ToolbarItem x:Name="ClearDatabase" Text="Clear" Clicked="ClearDatabase_OnClicked"></ToolbarItem>

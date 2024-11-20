@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971.Views.CourseEdit"
-             Title="CourseEdit">
+             Title="Edit Course">
            <!-- <NavigationPage.TitleView></NavigationPage.TitleView> -->
 
             <ContentPage.ToolbarItems>
@@ -70,6 +70,60 @@
                         <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
                         <Switch x:Name="Notification" Grid.Row="11" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
+                    <!--Button to add a new assessment-->
+                    <Button
+                        x:Name="AddAssessment"
+                        Clicked="AddAssessment_OnClicked"
+                        Text="Add Assessment" />
+                    <Label Text="_________________________________________________________________" />
+
+                    <!--Display Assessments in a list-->
+                    <CollectionView
+                        x:Name="AssessmentCollectionView"
+                        EmptyView="No Assessments to display."
+                        SelectionChanged="AssessmentCollectionView_OnSelectionChanged"
+                        SelectionMode="Single">
+                        
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+
+                        <!--Define the appearance of each item in the list using StackLayout and a Grid-->
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid
+                                        Padding="5"
+                                        BackgroundColor="WhiteSmoke"
+                                        ColumnSpacing="22"
+                                        RowSpacing="1">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" Text="{Binding Name}" VerticalTextAlignment="Center" />
+                                        <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                                        <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" Text="{Binding StartDate, StringFormat='{0:M/dd/yyyy}'}" VerticalTextAlignment="Center" />
+                                        <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                                        <Label Grid.Row="2" Grid.Column="1" FontSize="Medium" Text="{Binding EndDate, StringFormat='{0:M/dd/yyyy}'}" VerticalTextAlignment="Center" />
+                                        <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Assessment Type</Label>
+                                        <Label Grid.Row="3" Grid.Column="1" FontSize="Medium" Text="{Binding Type}" VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
 
                 </StackLayout>
             </ContentPage.Content>

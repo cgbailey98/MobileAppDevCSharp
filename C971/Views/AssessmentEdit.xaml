@@ -3,10 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971.Views.AssessmentEdit"
              Title="AssessmentEdit">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            
+            <ContentPage.ToolbarItems>
+                <ToolbarItem x:Name="SaveAssessment" Text="Save" Clicked="SaveAssessment_OnClicked" ></ToolbarItem>
+                <ToolbarItem x:Name="CancelAssessment" Text="Cancel" Clicked="CancelAssessment_OnClicked" ></ToolbarItem>
+                <ToolbarItem x:Name="DeleteAssessment" Text="Delete" Clicked="DeleteAssessment_OnClicked"></ToolbarItem>
+            </ContentPage.ToolbarItems>
+
+            <ContentPage.Content>
+                <StackLayout>
+
+                    <Grid Padding="5" BackgroundColor="WhiteSmoke" ColumnSpacing="22" RowSpacing="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
+                        <Entry x:Name="AssessmentId" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Placeholder="Enter Assessment Name" Text="{Binding Id}" VerticalTextAlignment="Center" />
+                        <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
+                        <Entry x:Name="AssessmentName" Grid.Row="1" Grid.Column="1" Placeholder="Enter Assessment Name" Text="{Binding Name}" VerticalTextAlignment="Center" />
+                        <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                        <DatePicker x:Name="StartDatePicker" Grid.Row="2" Grid.Column="1" FontSize="Medium" />
+                        <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                        <DatePicker x:Name="EndDatePicker" Grid.Row="3" Grid.Column="1" FontSize="Medium" />
+                        <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Assessment Type</Label>
+                        <Picker x:Name="AssessmentTypePicker" Title="Select an Assessment Type" Grid.Row="4" Grid.Column="1" FontSize="Medium" TitleColor="Teal">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>None</x:String>
+                                    <x:String>Objective</x:String>
+                                    <x:String>Performance</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
+                        <Switch x:Name="Notifications" Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+
+                </StackLayout>
+            </ContentPage.Content>
+
 </ContentPage>

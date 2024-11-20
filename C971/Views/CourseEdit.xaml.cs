@@ -18,6 +18,7 @@ public partial class CourseEdit : ContentPage
         InstructorPhone.Text = selectedCourse.InstructorPhone;
         InstructorEmail.Text = selectedCourse.InstructorEmail;
         CourseStatusPicker.SelectedItem = selectedCourse.Status;
+        NotesEditor.Text = selectedCourse.Notes;
     }
 
     async void ShareButton_OnClicked(object? sender, EventArgs e)
@@ -96,7 +97,7 @@ public partial class CourseEdit : ContentPage
 
         await DatabaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDatePicker.Date,
             EndDatePicker.Date, InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
-            selectedStatus);
+            selectedStatus, NotesEditor.Text);
 
         await Navigation.PopAsync();
     }
@@ -124,5 +125,21 @@ public partial class CourseEdit : ContentPage
         }
 
         await Navigation.PopAsync();
+    }
+
+    async void AddAssessment_OnClicked(object? sender, EventArgs e)
+    {
+        var courseId = Int32.Parse(CourseId.Text);
+
+        await Navigation.PushAsync(new AssessmentAdd(courseId));
+    }
+
+    async void AssessmentCollectionView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        var assessment = (Assessment)e.CurrentSelection.FirstOrDefault();
+        if (e.CurrentSelection != null)
+        {
+            await Navigation.PushAsync((new AssessmentEdit(assessment)));
+        }
     }
 }

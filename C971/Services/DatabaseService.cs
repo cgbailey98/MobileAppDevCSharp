@@ -132,7 +132,7 @@ namespace C971.Services
         }
 
         public static async Task UpdateCourse(int id, string name, DateTime startDate, DateTime endDate,
-            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType) //List<Assessment> assessments
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType, string notes) //List<Assessment> assessments
         {
             await Init();
 
@@ -149,6 +149,7 @@ namespace C971.Services
                 courseQuery.InstructorPhone = instructorPhone;
                 courseQuery.InstructorEmail = instructorEmail;
                 courseQuery.Status = statusType;
+                courseQuery.Notes = notes;
                 //courseQuery.Assessments = assessments;
 
                 await _db.UpdateAsync(courseQuery);
