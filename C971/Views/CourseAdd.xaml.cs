@@ -1,3 +1,4 @@
+using C971.Models;
 using C971.Services;
 
 namespace C971.Views;
@@ -58,15 +59,21 @@ public partial class CourseAdd : ContentPage
             return;
         }
 
-        if (CourseStatusPicker.SelectedIndex == -1)
+        if (CourseStatusPicker.SelectedItem == null)
         {
             await DisplayAlert("Missing Course Status", "Please enter a status for the Course.", "OK");
             return;
         }
 
+        if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        {
+            await DisplayAlert("Error", "Invalid status selected.", "OK");
+            return;
+        }
+
         await DatabaseService.AddCourse(_selectedCourseId, CourseName.Text, StartDatePicker.Date, EndDatePicker.Date,
             InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
-            CourseStatusPicker.SelectedItem.ToString());
+            selectedStatus);
         await Navigation.PopAsync();
     }
 

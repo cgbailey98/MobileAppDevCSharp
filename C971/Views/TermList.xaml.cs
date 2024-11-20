@@ -21,7 +21,7 @@ public partial class TermList : ContentPage
 
         await RefreshTermCollectionView();
 
-        ShowCourseNotifications();
+        //ShowCourseNotifications();
     }
 	public TermList()
 	{
@@ -62,42 +62,42 @@ public partial class TermList : ContentPage
         TermCollectionView.ItemsSource = await DatabaseService.GetTerms();
     }
 
-    private async void ShowCourseNotifications()
-    {
-        //Test for enabled notifications added - 28 Sep 2024
-        if (await LocalNotificationCenter.Current.AreNotificationsEnabled() == false)
-        {
-            await LocalNotificationCenter.Current.RequestNotificationPermission();
-        }
+    //private async void ShowCourseNotifications()
+    //{
+    //    //Test for enabled notifications added - 28 Sep 2024
+    //    if (await LocalNotificationCenter.Current.AreNotificationsEnabled() == false)
+    //    {
+    //        await LocalNotificationCenter.Current.RequestNotificationPermission();
+    //    }
 
-        var courseList = await DatabaseService.GetCourses();
-        var notifyRandom = new Random();
+    //    var courseList = await DatabaseService.GetCourses();
+    //    var notifyRandom = new Random();
 
-        foreach (Course courseRecord in courseList)
-        {
-            if (courseRecord.StartNotification == true) //TODO Find out where in the videos this was created
-            {
-                if (courseRecord.StartDate == DateTime.Today)
-                {
-                    var notifyId = notifyRandom.Next(1000);
+    //    foreach (Course courseRecord in courseList)
+    //    {
+    //        if (courseRecord.StartNotification == true) //TODO Find out where in the videos this was created
+    //        {
+    //            if (courseRecord.StartDate == DateTime.Today)
+    //            {
+    //                var notifyId = notifyRandom.Next(1000);
 
-                    var notification = new NotificationRequest
-                    {
-                        NotificationId = notifyId,
-                        Title = "Course Notification",
-                        Subtitle = "This is my subtitle.",
-                        Description = $"{courseRecord.Name} begins today!",
-                        ReturningData = "Hello course notification!",
-                        BadgeNumber = 42,
-                        Schedule = new NotificationRequestSchedule()
-                        {
-                            NotifyTime = DateTime.Now.AddSeconds(5),
-                        }
-                    };
+    //                var notification = new NotificationRequest
+    //                {
+    //                    NotificationId = notifyId,
+    //                    Title = "Course Notification",
+    //                    Subtitle = "This is my subtitle.",
+    //                    Description = $"{courseRecord.Name} begins today!",
+    //                    ReturningData = "Hello course notification!",
+    //                    BadgeNumber = 42,
+    //                    Schedule = new NotificationRequestSchedule()
+    //                    {
+    //                        NotifyTime = DateTime.Now.AddSeconds(5),
+    //                    }
+    //                };
 
-                    await LocalNotificationCenter.Current.Show(notification);
-                }
-            }
-        }
-    }
+    //                await LocalNotificationCenter.Current.Show(notification);
+    //            }
+    //        }
+    //    }
+    //}
 }

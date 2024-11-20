@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971.Views.TermList"
              Title="TermList">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddTerm" Text="Add Term" Clicked="AddTerm_OnClicked"></ToolbarItem>
+        <ToolbarItem x:Name="ClearDatabase" Text="Clear" Clicked="ClearDatabase_OnClicked"></ToolbarItem>
+        <ToolbarItem x:Name="LoadSampleData" Text="Load" Clicked="LoadSampleData_OnClicked"></ToolbarItem>
+
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <!-- DISPLAY Terms in a list -->
         <CollectionView x:Name="TermCollectionView"

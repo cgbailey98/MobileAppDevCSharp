@@ -82,15 +82,21 @@ public partial class CourseEdit : ContentPage
             return;
         }
 
-        if (CourseStatusPicker.SelectedIndex == -1)
+        if (CourseStatusPicker.SelectedItem == null)
         {
             await DisplayAlert("Missing Status", "Please enter a Course Status", "OK");
             return;
         }
 
+        if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        {
+            await DisplayAlert("Error", "Invalid status selected.", "OK");
+            return;
+        }
+
         await DatabaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDatePicker.Date,
             EndDatePicker.Date, InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
-            CourseStatusPicker.SelectedItem.ToString());
+            selectedStatus);
 
         await Navigation.PopAsync();
     }
