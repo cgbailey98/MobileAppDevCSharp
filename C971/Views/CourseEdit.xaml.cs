@@ -5,11 +5,24 @@ namespace C971.Views;
 
 public partial class CourseEdit : ContentPage
 {
+    private readonly int _selectedCourseId;
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        int countAssessments = await DatabaseService.GetAssessmentCountAsync(_selectedCourseId);
+
+        CountLabel.Text = countAssessments.ToString();
+
+        AssessmentCollectionView.ItemsSource = await DatabaseService.GetAssessments(_selectedCourseId);
+    }
 	public CourseEdit(Course selectedCourse)
 	{
 		InitializeComponent();
 
         // Populate controls next
+        _selectedCourseId = selectedCourse.Id;
         CourseId.Text = selectedCourse.Id.ToString();
         CourseName.Text = selectedCourse.Name;
         StartDatePicker.Date = selectedCourse.StartDate;
@@ -59,7 +72,7 @@ public partial class CourseEdit : ContentPage
             if (!confirm) return;
         }
 
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddMonths(6))) //TODO find out if there is a better way to do this. Thinking of using the '<=' in some way but unsure on how to correctly do this.
+        if (EndDatePicker.Date < (StartDatePicker.Date.AddMonths(6)) || (EndDatePicker.Date > StartDatePicker.Date.AddMonths(6))) //TODO find out if there is a better way to do this. Thinking of using the '<=' in some way but unsure on how to correctly do this.
         {
             await DisplayAlert("Invalid Term Length", "The End Date must be 6 months after the Start Date.", "OK");
             return;

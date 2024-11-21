@@ -297,6 +297,15 @@ namespace C971.Services
             return courseCount;
         }
 
+        public static async Task<int> GetAssessmentCountAsync(int selectedCourseId)
+        {
+            int assessmentCount =
+                await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Assessment WHERE CourseId = ?",
+                    selectedCourseId);
+
+            return assessmentCount;
+        }
+
         #endregion
     }
 }

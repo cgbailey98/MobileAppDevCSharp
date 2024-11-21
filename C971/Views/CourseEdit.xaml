@@ -12,69 +12,78 @@
             </ContentPage.ToolbarItems>
 
             <ContentPage.Content>
-                <StackLayout>
+                <ScrollView>
+                    <StackLayout>
 
-                    <Grid Padding="5" BackgroundColor="WhiteSmoke" ColumnSpacing="22" RowSpacing="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                        <Grid Padding="5" BackgroundColor="WhiteSmoke" ColumnSpacing="22" RowSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
-                        <Entry x:Name="CourseId" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Placeholder="Enter Course Name" Text="{Binding Id}" VerticalTextAlignment="Center" />
-                        <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
-                        <Entry x:Name="CourseName" Grid.Row="1" Grid.Column="1" Placeholder="Enter Course Name" Text="{Binding Name}" VerticalTextAlignment="Center" />
-                        <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
-                        <DatePicker x:Name="StartDatePicker" Grid.Row="2" Grid.Column="1" FontSize="Medium" />
-                        <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
-                        <DatePicker x:Name="EndDatePicker" Grid.Row="3" Grid.Column="1" FontSize="Medium" />
-                        <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Name</Label>
-                        <Entry x:Name="InstructorName" Grid.Row="4" Grid.Column="1" Placeholder="Enter Instructor's Name" Text="{Binding InstructorName}" VerticalTextAlignment="Center" />
-                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Phone</Label>
-                        <Entry x:Name="InstructorPhone" Grid.Row="5" Grid.Column="1" Placeholder="Enter Instructor's Phone" Text="{Binding InstructorPhone}" VerticalTextAlignment="Center" />
-                        <Label Grid.Row="6" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Email</Label>
-                        <Entry x:Name="InstructorEmail" Grid.Row="6" Grid.Column="1" Placeholder="Enter Instructor's Email" Text="{Binding InstructorEmail}" VerticalTextAlignment="Center" />
-                        <Label Grid.Row="7" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Course Status</Label>
-                        <Picker x:Name="CourseStatusPicker" Title="Select a Status" Grid.Row="7" Grid.Column="1" FontSize="Medium" TitleColor="Teal">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>None</x:String>
-                                    <x:String>In Progress</x:String>
-                                    <x:String>Completed</x:String>
-                                    <x:String>Dropped</x:String>
-                                    <x:String>Planned</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                        <Label Grid.Row="8" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
-                        <Editor x:Name="NotesEditor" Grid.Row="8" Grid.Column="1" Placeholder="Enter Notes here." />
-                        <Label Grid.Row="9" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
-                        <Button x:Name="ShareButton" Grid.Row="9" Grid.Column="1" Clicked="ShareButton_OnClicked" FontSize="Medium" Text="Share" VerticalOptions="Center" />
-                        <Label Grid.Row="10" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
-                        <Button x:Name="ShareUri" Grid.Row="10" Grid.Column="1" Clicked="ShareUri_OnClicked" FontSize="Medium" Text="Share Uri" VerticalOptions="Center" />
-                        <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
-                        <Switch x:Name="Notification" Grid.Row="11" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
-                    </Grid>
+                            <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
+                            <Entry x:Name="CourseId" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Placeholder="Enter Course Name" Text="{Binding Id}" VerticalTextAlignment="Center" />
+                            <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
+                            <Entry x:Name="CourseName" Grid.Row="1" Grid.Column="1" Placeholder="Enter Course Name" Text="{Binding Name}" VerticalTextAlignment="Center" />
+                            <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                            <DatePicker x:Name="StartDatePicker" Grid.Row="2" Grid.Column="1" FontSize="Medium" />
+                            <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                            <DatePicker x:Name="EndDatePicker" Grid.Row="3" Grid.Column="1" FontSize="Medium" />
+                            <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Name</Label>
+                            <Entry x:Name="InstructorName" Grid.Row="4" Grid.Column="1" Placeholder="Enter Instructor's Name" Text="{Binding InstructorName}" VerticalTextAlignment="Center" />
+                            <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Phone</Label>
+                            <Entry x:Name="InstructorPhone" Grid.Row="5" Grid.Column="1" Placeholder="Enter Instructor's Phone" Text="{Binding InstructorPhone}" VerticalTextAlignment="Center" />
+                            <Label Grid.Row="6" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Instructor Email</Label>
+                            <Entry x:Name="InstructorEmail" Grid.Row="6" Grid.Column="1" Placeholder="Enter Instructor's Email" Text="{Binding InstructorEmail}" VerticalTextAlignment="Center" />
+                            <Label Grid.Row="7" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Course Status</Label>
+                            <Picker x:Name="CourseStatusPicker" Title="Select a Status" Grid.Row="7" Grid.Column="1" FontSize="Medium" TitleColor="Teal">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>None</x:String>
+                                        <x:String>In Progress</x:String>
+                                        <x:String>Completed</x:String>
+                                        <x:String>Dropped</x:String>
+                                        <x:String>Planned</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Label Grid.Row="8" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
+                            <Editor x:Name="NotesEditor" Grid.Row="8" Grid.Column="1" Placeholder="Enter Notes here." />
+                            <Label Grid.Row="9" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
+                            <Button x:Name="ShareButton" Grid.Row="9" Grid.Column="1" Clicked="ShareButton_OnClicked" FontSize="Medium" Text="Share" VerticalOptions="Center" />
+                            <Label Grid.Row="10" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
+                            <Button x:Name="ShareUri" Grid.Row="10" Grid.Column="1" Clicked="ShareUri_OnClicked" FontSize="Medium" Text="Share Uri" VerticalOptions="Center" />
+                            <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
+                            <Switch x:Name="Notification" Grid.Row="11" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                        </Grid>
                     <!--Button to add a new assessment-->
                     <Button
                         x:Name="AddAssessment"
                         Clicked="AddAssessment_OnClicked"
                         Text="Add Assessment" />
+
+                    <Label FontSize="Large" Text="Assessment Count" />
+                    <Label x:Name="CountLabel" FontSize="Large" />
+                    <Label
+                        x:Name="LabelList"
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        Text="Assessment List" />
                     <Label Text="_________________________________________________________________" />
 
                     <!--Display Assessments in a list-->
@@ -126,5 +135,6 @@
                     </CollectionView>
 
                 </StackLayout>
-            </ContentPage.Content>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

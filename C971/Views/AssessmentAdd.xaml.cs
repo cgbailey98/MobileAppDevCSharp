@@ -33,9 +33,9 @@ public partial class AssessmentAdd : ContentPage
             }
         }
 
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddMonths(6)))
+        if (EndDatePicker.Date < (StartDatePicker.Date.AddDays(1)))
         {
-            await DisplayAlert("Invalid term length", "The End Date must be 6 months after the Start Date.", "OK");
+            await DisplayAlert("Invalid length", "The End Date must be at least one day after the Start Date.", "OK");
             return;
         }
 
