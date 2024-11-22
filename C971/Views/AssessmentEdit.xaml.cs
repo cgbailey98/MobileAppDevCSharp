@@ -5,9 +5,12 @@ namespace C971.Views;
 
 public partial class AssessmentEdit : ContentPage
 {
+    private readonly int _courseId;
 	public AssessmentEdit(Assessment selectedAssessment)
 	{
 		InitializeComponent();
+
+        _courseId = selectedAssessment.CourseId;
 
         AssessmentId.Text = selectedAssessment.Id.ToString();
         AssessmentName.Text = selectedAssessment.Name;
@@ -52,7 +55,26 @@ public partial class AssessmentEdit : ContentPage
             return;
         }
 
-        await DatabaseService.UpdateAssessment(Int32.Parse(AssessmentId.Text), AssessmentName.Text,
+        int assessmentId = Int32.Parse(AssessmentId.Text);
+        
+
+        int objectiveCount = await DatabaseService.GetObjectiveAssessmentCountExcludingAsync(_courseId, assessmentId);
+        int performanceCount =
+            await DatabaseService.GetPerformanceAssessmentCountExcludingAsync(_courseId, assessmentId);
+
+        if (selectedType == Assessment.AssessmentType.Objective && objectiveCount >= 1)
+        {
+            await DisplayAlert("Limit Reached", "Only one Objective Assessment is allowed per course.", "OK");
+            return;
+        }
+
+        if (selectedType == Assessment.AssessmentType.Performance && performanceCount >= 1)
+        {
+            await DisplayAlert("Limit Reached", "Only one Performance Assessment is allowed per course.", "OK");
+            return;
+        }
+
+        await DatabaseService.UpdateAssessment(assessmentId, AssessmentName.Text,
             StartDatePicker.Date, EndDatePicker.Date, selectedType);
 
         await Navigation.PopAsync();

@@ -5,12 +5,17 @@ namespace C971.Views;
 
 public partial class AssessmentAdd : ContentPage
 {
-    private readonly int _selectedAssessmentId;
-	public AssessmentAdd(int assessmentId)
+    private readonly int _selectedCourseId;
+    private readonly Assessment.AssessmentType _selectedAssessmentType;
+	public AssessmentAdd(int courseId, Assessment.AssessmentType assessmentType)
 	{
 		InitializeComponent();
-        _selectedAssessmentId = assessmentId;
-	}
+        _selectedCourseId = courseId;
+        _selectedAssessmentType = assessmentType;
+
+        AssessmentTypePicker.SelectedItem = _selectedAssessmentType.ToString();
+        AssessmentTypePicker.IsEnabled = false;
+    }
 
     async void SaveAssessment_OnClicked(object? sender, EventArgs e)
     {
@@ -39,21 +44,21 @@ public partial class AssessmentAdd : ContentPage
             return;
         }
 
-        if (AssessmentTypePicker.SelectedIndex == -1)
-        {
-            await DisplayAlert("Missing Assessment Type", "Please select an Assessment Type", "OK");
-            return;
-        }
+        //if (AssessmentTypePicker.SelectedIndex == -1)
+        //{
+        //    await DisplayAlert("Missing Assessment Type", "Please select an Assessment Type", "OK");
+        //    return;
+        //}
 
-        if (!Enum.TryParse(AssessmentTypePicker.SelectedItem.ToString(),
-                out Assessment.AssessmentType selectedAssessmentType))
-        {
-            await DisplayAlert("Error", "Invalid Assessment Type selected.", "OK");
-            return;
-        }
+        //if (!Enum.TryParse(AssessmentTypePicker.SelectedItem.ToString(),
+        //        out Assessment.AssessmentType selectedAssessmentType))
+        //{
+        //    await DisplayAlert("Error", "Invalid Assessment Type selected.", "OK");
+        //    return;
+        //}
 
-        await DatabaseService.AddAssessment(_selectedAssessmentId, AssessmentName.Text, StartDatePicker.Date,
-            EndDatePicker.Date, selectedAssessmentType);
+        await DatabaseService.AddAssessment(_selectedCourseId, AssessmentName.Text, StartDatePicker.Date,
+            EndDatePicker.Date, _selectedAssessmentType);
         await Navigation.PopAsync();
     }
 

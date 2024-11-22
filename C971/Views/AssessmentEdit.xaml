@@ -30,8 +30,8 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
-                        <Entry x:Name="AssessmentId" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Placeholder="Enter Assessment Name" Text="{Binding Id}" VerticalTextAlignment="Center" />
+                        <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" IsVisible="False">ID</Label>
+                        <Entry x:Name="AssessmentId" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Placeholder="Enter Assessment Name" Text="{Binding Id}" VerticalTextAlignment="Center" IsVisible="False" />
                         <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
                         <Entry x:Name="AssessmentName" Grid.Row="1" Grid.Column="1" Placeholder="Enter Assessment Name" Text="{Binding Name}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>

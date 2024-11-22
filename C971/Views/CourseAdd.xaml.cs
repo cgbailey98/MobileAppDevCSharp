@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using C971.Models;
 using C971.Services;
 
@@ -56,6 +57,13 @@ public partial class CourseAdd : ContentPage
         if (string.IsNullOrWhiteSpace(InstructorEmail.Text))
         {
             await DisplayAlert("Missing Instructor Info", "Please enter Instructor's Email.", "OK");
+            return;
+        }
+
+        string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+        if (!Regex.IsMatch(InstructorEmail.Text, emailPattern))
+        {
+            await DisplayAlert("Invalid Email", "Please enter a valid email address", "OK");
             return;
         }
 

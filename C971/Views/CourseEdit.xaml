@@ -77,8 +77,13 @@
                         Clicked="AddAssessment_OnClicked"
                         Text="Add Assessment" />
 
-                    <Label FontSize="Large" Text="Assessment Count" />
+                    <Label FontSize="Large" Text="Assessment Count:" FontAttributes="Bold" />
                     <Label x:Name="CountLabel" FontSize="Large" />
+
+                    <Label FontSize="Medium" Text="Objective Assessment" />
+                    <Label x:Name="ObjectiveCountLabel" FontSize="Medium" />
+                    <Label FontSize="Medium" Text="Performance Assessment" />
+                    <Label x:Name="PerformanceCountLabel" FontSize="Medium" />
                     <Label
                         x:Name="LabelList"
                         FontAttributes="Bold"

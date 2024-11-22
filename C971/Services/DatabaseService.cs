@@ -280,17 +280,8 @@ namespace C971.Services
 
         public static async Task<int> GetCourseCountAsync(int selectedTermId)
         {
-            //TODO getting a course count from a table
-
-            //int courseCount =
-            //    await _db.ExecuteScalarAsync<int>("Select Count(*) from Course where TermId = '" + selectedTermId +
-            //                                      "'");
-            //int courseCount = await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Course WHERE TermId = '{selectedTermId}'");
             int courseCount =
                 await _db.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM Course WHERE TermId = ?", selectedTermId);
-            //int courseCount = await _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Course");
-            //var objectiveCount = await _conn.QueryAsync<Assessment>($"SELECT Type FROM Assessments WHERE Course = '{_course.Id}' AND Type = 'Objective'");
-            //var performanceCount = await _conn.QueryAsync<Assessment>($"SELECT Type FROM Assessments WHERE Course = '{_course.Id}' AND Type = 'Performance'");
 
             return courseCount;
         }
@@ -304,6 +295,38 @@ namespace C971.Services
             return assessmentCount;
         }
 
+        public static async Task<int> GetObjectiveAssessmentCountAsync(int selectedCourseId)
+        {
+            int objectiveCount = await _db.ExecuteScalarAsync<int>(
+                $"SELECT COUNT(*) FROM Assessment WHERE CourseId = ? AND Type = ?", selectedCourseId, (int)Assessment.AssessmentType.Objective);
+            return objectiveCount;
+        }
+
+        public static async Task<int> GetObjectiveAssessmentCountExcludingAsync(int courseId, int assessmentIdToExclude)
+        {
+            await Init();
+            int objectiveCount = await _db.ExecuteScalarAsync<int>(
+                $"SELECT COUNT(*) FROM Assessment WHERE CourseId = ? AND Type = ? AND Id != ?",
+                courseId, (int)Assessment.AssessmentType.Objective, assessmentIdToExclude);
+            return objectiveCount;
+        }
+
+        public static async Task<int> GetPerformanceAssessmentCountAsync(int selectedCourseId)
+        {
+            int performanceCount = await _db.ExecuteScalarAsync<int>(
+                $"SELECT COUNT(*) FROM Assessment WHERE CourseId = ? AND Type = ?", selectedCourseId, (int)Assessment.AssessmentType.Performance);
+            return performanceCount;
+        }
+
+        public static async Task<int> GetPerformanceAssessmentCountExcludingAsync(int courseId,
+            int assessmentIdToExclude)
+        {
+            await Init();
+            int performanceCount = await _db.ExecuteScalarAsync<int>(
+                $"SELECT COUNT(*) FROM Assessment WHERE CourseId = ? AND Type = ? AND Id != ?",
+                courseId, (int)Assessment.AssessmentType.Performance, assessmentIdToExclude);
+            return performanceCount;
+        }
         #endregion
     }
 }

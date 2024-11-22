@@ -30,7 +30,7 @@
                         <DatePicker x:Name="StartDatePicker" Grid.Row="1" Grid.Column="1" FontSize="Medium" />
                         <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
                         <DatePicker x:Name="EndDatePicker" Grid.Row="2" Grid.Column="1" FontSize="Medium" />
-                        <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Assessment Typer</Label>
+                        <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Assessment Type</Label>
                         <Picker x:Name="AssessmentTypePicker" Title="Select an Assessment Type" Grid.Row="3" Grid.Column="1" FontSize="Medium" TitleColor="Teal">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">

@@ -11,9 +11,9 @@ namespace C971.Models
     {
         public enum AssessmentType
         {
-            None,
-            Objective,
-            Performance
+            None = 0,
+            Objective = 1,
+            Performance = 2
         }
 
         [PrimaryKey, AutoIncrement]
@@ -24,4 +24,5 @@ namespace C971.Models
         public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(1);
         public AssessmentType Type { get; set; } = AssessmentType.None;
     }
+
 }

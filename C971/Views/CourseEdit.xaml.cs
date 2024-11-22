@@ -12,9 +12,19 @@ public partial class CourseEdit : ContentPage
     {
         base.OnAppearing();
 
-        int countAssessments = await DatabaseService.GetAssessmentCountAsync(_selectedCourseId);
+        await RefreshAssessmentCounts();
+    }
 
+    private async Task RefreshAssessmentCounts()
+    {
+        int countAssessments = await DatabaseService.GetAssessmentCountAsync(_selectedCourseId);
         CountLabel.Text = countAssessments.ToString();
+
+        int objectiveCount = await DatabaseService.GetObjectiveAssessmentCountAsync(_selectedCourseId);
+        ObjectiveCountLabel.Text = objectiveCount.ToString();
+
+        int performanceCount = await DatabaseService.GetPerformanceAssessmentCountAsync(_selectedCourseId);
+        PerformanceCountLabel.Text = performanceCount.ToString();
 
         AssessmentCollectionView.ItemsSource = await DatabaseService.GetAssessments(_selectedCourseId);
     }
@@ -187,7 +197,33 @@ public partial class CourseEdit : ContentPage
     {
         var courseId = Int32.Parse(CourseId.Text);
 
-        await Navigation.PushAsync(new AssessmentAdd(courseId));
+        int objectiveCount = await DatabaseService.GetObjectiveAssessmentCountAsync(courseId);
+        int performanceCount = await DatabaseService.GetPerformanceAssessmentCountAsync(courseId);
+
+        var action = await DisplayActionSheet("Select Assessment Type", "Cancel", null, "Objective", "Performance");
+
+        if (action == "Cancel")
+        {
+            return;
+        }
+
+        if (action == "Objective" && objectiveCount >= 1)
+        {
+            await DisplayAlert("Limit Reached", "Only one Objective Assessment is allowed per course.", "OK");
+            return;
+        }
+
+        if (action == "Performance" && performanceCount >= 1)
+        {
+            await DisplayAlert("Limit Reached", "Only one Performance Assessment is allowed per course.", "OK");
+            return;
+        }
+
+        Assessment.AssessmentType selectedAssessmentType = action == "Objective"
+            ? Assessment.AssessmentType.Objective
+            : Assessment.AssessmentType.Performance;
+
+        await Navigation.PushAsync(new AssessmentAdd(courseId, selectedAssessmentType));
     }
 
     async void AssessmentCollectionView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
