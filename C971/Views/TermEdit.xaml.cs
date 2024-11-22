@@ -50,6 +50,15 @@ public partial class TermEdit : ContentPage
     {
         var termId = Int32.Parse(TermId.Text);
 
+        int currentCourseCount = await DatabaseService.GetCourseCountAsync(termId);
+
+        if (currentCourseCount >= 6)
+        {
+            await Application.Current.MainPage.DisplayAlert("Course Limit Reached",
+                "Cannot add more than 6 courses to a term.", "OK");
+            return;
+        }
+
         await Navigation.PushAsync(new CourseAdd(termId));
     }
 

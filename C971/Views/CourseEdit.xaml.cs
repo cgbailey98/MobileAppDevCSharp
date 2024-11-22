@@ -151,12 +151,6 @@ public partial class CourseEdit : ContentPage
                 return;
         }
 
-        //if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
-        //{
-        //    await DisplayAlert("Error", "Invalid status selected.", "OK");
-        //    return;
-        //}
-
         await DatabaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDatePicker.Date,
             EndDatePicker.Date, InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
             selectedStatus, NotesEditor.Text);
