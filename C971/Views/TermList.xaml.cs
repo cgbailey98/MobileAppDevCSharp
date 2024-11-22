@@ -75,7 +75,7 @@ public partial class TermList : ContentPage
 
         foreach (Course courseRecord in courseList)
         {
-            if (courseRecord.StartNotification == true) //TODO Find out where in the videos this was created
+            if (courseRecord.StartNotification == true)
             {
                 if (courseRecord.StartDate == DateTime.Today)
                 {
@@ -89,7 +89,7 @@ public partial class TermList : ContentPage
                         Description = $"{courseRecord.Name} begins today!",
                         ReturningData = "Hello course notification!",
                         BadgeNumber = 42,
-                        Schedule = new NotificationRequestSchedule()
+                        Schedule = new NotificationRequestSchedule
                         {
                             NotifyTime = DateTime.Now.AddSeconds(5),
                         }
