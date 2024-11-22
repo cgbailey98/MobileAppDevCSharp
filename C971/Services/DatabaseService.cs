@@ -243,7 +243,6 @@ namespace C971.Services
                 InstructorPhone = "555-123-4567",
                 InstructorEmail = "anika.patel@strimeuniversity.edu",
                 Status = Course.StatusType.Planned,
-                //Assessments = new List<Assessment>(), //TODO figure out if this is the right way of displaying the assessments or if I even need to do this.
             };
 
             await _db.InsertAsync(course);
@@ -258,7 +257,6 @@ namespace C971.Services
                 InstructorPhone = "555-123-4567",
                 InstructorEmail = "anika.patel@strimeuniversity.edu",
                 Status = Course.StatusType.Planned,
-                //Assessments = new List<Assessment>(),
             };
 
             await _db.InsertAsync(course2);

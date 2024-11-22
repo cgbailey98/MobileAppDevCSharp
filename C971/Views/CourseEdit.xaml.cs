@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using C971.Models;
 using C971.Services;
 
@@ -30,8 +31,24 @@ public partial class CourseEdit : ContentPage
         InstructorName.Text = selectedCourse.InstructorName;
         InstructorPhone.Text = selectedCourse.InstructorPhone;
         InstructorEmail.Text = selectedCourse.InstructorEmail;
-        CourseStatusPicker.SelectedItem = selectedCourse.Status;
         NotesEditor.Text = selectedCourse.Notes;
+
+        string courseStatus = selectedCourse.Status.ToString();
+
+        if (courseStatus == "InProgress")
+        {
+            courseStatus = "In Progress";
+        }
+
+        int index = CourseStatusPicker.Items.IndexOf(courseStatus);
+        if (index != -1)
+        {
+            CourseStatusPicker.SelectedIndex = index;
+        }
+        else
+        {
+            CourseStatusPicker.SelectedIndex = 0;
+        }
     }
 
     async void ShareButton_OnClicked(object? sender, EventArgs e)
@@ -96,17 +113,49 @@ public partial class CourseEdit : ContentPage
             return;
         }
 
+        string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+        if (!Regex.IsMatch(InstructorEmail.Text, emailPattern))
+        {
+            await DisplayAlert("Invalid Email", "Please enter a valid email address", "OK");
+            return;
+        }
+
         if (CourseStatusPicker.SelectedItem == null)
         {
             await DisplayAlert("Missing Status", "Please enter a Course Status", "OK");
             return;
         }
 
-        if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        string selectedStatusString = CourseStatusPicker.SelectedItem.ToString();
+        Course.StatusType selectedStatus;
+
+        switch (selectedStatusString)
         {
-            await DisplayAlert("Error", "Invalid status selected.", "OK");
-            return;
+            case "In Progress":
+                selectedStatus = Course.StatusType.InProgress;
+                break;
+            case "None":
+                selectedStatus = Course.StatusType.None;
+                break;
+            case "Completed":
+                selectedStatus = Course.StatusType.Completed;
+                break;
+            case "Dropped":
+                selectedStatus = Course.StatusType.Dropped;
+                break;
+            case "Planned":
+                selectedStatus = Course.StatusType.Planned;
+                break;
+            default:
+                await DisplayAlert("Error", "Invalid Status selected.", "OK");
+                return;
         }
+
+        //if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        //{
+        //    await DisplayAlert("Error", "Invalid status selected.", "OK");
+        //    return;
+        //}
 
         await DatabaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDatePicker.Date,
             EndDatePicker.Date, InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
