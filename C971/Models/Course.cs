@@ -28,6 +28,7 @@ namespace C971.Models
         public string InstructorPhone { get; set; } = string.Empty;
         public string InstructorEmail { get; set;} = string.Empty;
         public bool StartNotification { get; set; }
+        public bool EndNotification { get; set; }
         public StatusType Status { get; set; } = StatusType.None;
         public string Notes { get; set; }
         //public List<Assessment> Assessments { get; set; } = new List<Assessment>();

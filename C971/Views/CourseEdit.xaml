@@ -29,6 +29,7 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
@@ -68,8 +69,10 @@
                             <Button x:Name="ShareButton" Grid.Row="9" Grid.Column="1" Clicked="ShareButton_OnClicked" FontSize="Medium" Text="Share" VerticalOptions="Center" />
                             <Label Grid.Row="10" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
                             <Button x:Name="ShareUri" Grid.Row="10" Grid.Column="1" Clicked="ShareUri_OnClicked" FontSize="Medium" Text="Share Uri" VerticalOptions="Center" />
-                            <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
-                            <Switch x:Name="Notification" Grid.Row="11" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                            <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at Start Date" VerticalTextAlignment="Center" />
+                            <Switch x:Name="StartNotification" Grid.Row="11" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                            <Label Grid.Row="12" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at End Date" VerticalTextAlignment="Center" />
+                            <Switch x:Name="EndNotification" Grid.Row="12" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
                         </Grid>
                     <!--Button to add a new assessment-->
                     <Button

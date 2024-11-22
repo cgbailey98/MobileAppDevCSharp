@@ -75,28 +75,46 @@ public partial class TermList : ContentPage
 
         foreach (Course courseRecord in courseList)
         {
-            if (courseRecord.StartNotification == true)
+            if (courseRecord.StartNotification == true && courseRecord.StartDate == DateTime.Today)
             {
-                if (courseRecord.StartDate == DateTime.Today)
+                var notifyId = notifyRandom.Next(1000);
+
+                var notification = new NotificationRequest
                 {
-                    var notifyId = notifyRandom.Next(1000);
-
-                    var notification = new NotificationRequest
+                    NotificationId = notifyId,
+                    Title = "Course Notification",
+                    Subtitle = "Course Start Reminder",
+                    Description = $"{courseRecord.Name} begins today!",
+                    ReturningData = "Hello course notification!",
+                    BadgeNumber = 42,
+                    Schedule = new NotificationRequestSchedule
                     {
-                        NotificationId = notifyId,
-                        Title = "Course Notification",
-                        Subtitle = "This is my subtitle.",
-                        Description = $"{courseRecord.Name} begins today!",
-                        ReturningData = "Hello course notification!",
-                        BadgeNumber = 42,
-                        Schedule = new NotificationRequestSchedule
-                        {
-                            NotifyTime = DateTime.Now.AddSeconds(5),
-                        }
-                    };
+                        NotifyTime = DateTime.Now.AddSeconds(5),
+                    }
+                };
 
-                    await LocalNotificationCenter.Current.Show(notification);
-                }
+                await LocalNotificationCenter.Current.Show(notification);
+            }
+
+            if (courseRecord.EndNotification == true && courseRecord.EndDate == DateTime.Today)
+            {
+                var notifyId = notifyRandom.Next(1000);
+
+                var notification = new NotificationRequest
+                {
+                    NotificationId = notifyId,
+                    Title = "Course Notification",
+                    Subtitle = "Course End Reminder",
+                    Description = $"{courseRecord.Name} ends today!",
+                    ReturningData = "Hello course notification!",
+                    BadgeNumber = 42,
+                    Schedule = new NotificationRequestSchedule
+                    {
+                        NotifyTime = DateTime.Now.AddSeconds(5),
+                    }
+                };
+
+                await LocalNotificationCenter.Current.Show(notification);
             }
         }
     }

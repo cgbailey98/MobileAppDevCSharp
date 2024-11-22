@@ -73,15 +73,40 @@ public partial class CourseAdd : ContentPage
             return;
         }
 
-        if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        string selectedStatusString = CourseStatusPicker.SelectedItem.ToString();
+        Course.StatusType selectedStatus;
+
+        switch (selectedStatusString)
         {
-            await DisplayAlert("Error", "Invalid status selected.", "OK");
-            return;
+            case "In Progress":
+                selectedStatus = Course.StatusType.InProgress;
+                break;
+            case "None":
+                selectedStatus = Course.StatusType.None;
+                break;
+            case "Completed":
+                selectedStatus = Course.StatusType.Completed;
+                break;
+            case "Dropped":
+                selectedStatus = Course.StatusType.Dropped;
+                break;
+            case "Planned":
+                selectedStatus = Course.StatusType.Planned;
+                break;
+            default:
+                await DisplayAlert("Error", "Invalid status selected.", "OK");
+                return;
         }
+
+        //if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
+        //{
+        //    await DisplayAlert("Error", "Invalid status selected.", "OK");
+        //    return;
+        //}
 
         await DatabaseService.AddCourse(_selectedCourseId, CourseName.Text, StartDatePicker.Date, EndDatePicker.Date,
             InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
-            selectedStatus);
+            selectedStatus, StartNotification.IsToggled, EndNotification.IsToggled);
         await Navigation.PopAsync();
     }
 

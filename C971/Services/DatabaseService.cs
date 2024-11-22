@@ -84,7 +84,7 @@ namespace C971.Services
         #region Course methods
 
         public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate,
-            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType) //List<Assessment> assessments
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType, bool startNotification, bool endNotification) 
         {
             await Init();
 
@@ -98,7 +98,8 @@ namespace C971.Services
                 InstructorPhone = instructorPhone,
                 InstructorEmail = instructorEmail,
                 Status = statusType,
-                //Assessments = assessments
+                StartNotification = startNotification,
+                EndNotification = endNotification
             };
 
             await _db.InsertAsync(course);
@@ -132,7 +133,7 @@ namespace C971.Services
         }
 
         public static async Task UpdateCourse(int id, string name, DateTime startDate, DateTime endDate,
-            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType, string notes) //List<Assessment> assessments
+            string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType, string notes, bool startNotification, bool endNotification) 
         {
             await Init();
 
@@ -150,7 +151,8 @@ namespace C971.Services
                 courseQuery.InstructorEmail = instructorEmail;
                 courseQuery.Status = statusType;
                 courseQuery.Notes = notes;
-                //courseQuery.Assessments = assessments;
+                courseQuery.StartNotification = startNotification;
+                courseQuery.EndNotification = endNotification;
 
                 await _db.UpdateAsync(courseQuery);
             }

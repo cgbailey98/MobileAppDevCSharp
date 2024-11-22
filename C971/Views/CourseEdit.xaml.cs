@@ -163,7 +163,7 @@ public partial class CourseEdit : ContentPage
 
         await DatabaseService.UpdateCourse(Int32.Parse(CourseId.Text), CourseName.Text, StartDatePicker.Date,
             EndDatePicker.Date, InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
-            selectedStatus, NotesEditor.Text);
+            selectedStatus, NotesEditor.Text, StartNotification.IsToggled, EndNotification.IsToggled);
 
         await Navigation.PopAsync();
     }

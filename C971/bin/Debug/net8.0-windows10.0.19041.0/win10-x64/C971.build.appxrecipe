@@ -328,7 +328,7 @@
     <AppxPackagedFile Include="C:\Users\clayb\.nuget\packages\microsoft.windowsappsdk\1.5.240627000\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\clayb\.nuget\packages\plugin.localnotification\11.1.1\lib\net8.0-windows10.0.19041\Plugin.LocalNotification.dll">
+    <AppxPackagedFile Include="C:\Users\clayb\.nuget\packages\plugin.localnotification\11.1.0\lib\net8.0-windows10.0.19041\Plugin.LocalNotification.dll">
       <PackagePath>Plugin.LocalNotification.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\clayb\.nuget\packages\sqlite-net-pcl\1.9.172\lib\netstandard2.0\SQLite-net.dll">

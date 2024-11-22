@@ -86,7 +86,7 @@
             },
             "Plugin.LocalNotification": {
               "target": "Package",
-              "version": "[11.1.1, )"
+              "version": "[11.1.0, )"
             },
             "SQLitePCLRaw.bundle_green": {
               "target": "Package",
@@ -141,7 +141,7 @@
             },
             "Plugin.LocalNotification": {
               "target": "Package",
-              "version": "[11.1.1, )"
+              "version": "[11.1.0, )"
             },
             "SQLitePCLRaw.bundle_green": {
               "target": "Package",
@@ -196,7 +196,7 @@
             },
             "Plugin.LocalNotification": {
               "target": "Package",
-              "version": "[11.1.1, )"
+              "version": "[11.1.0, )"
             },
             "SQLitePCLRaw.bundle_green": {
               "target": "Package",
@@ -246,7 +246,7 @@
             },
             "Plugin.LocalNotification": {
               "target": "Package",
-              "version": "[11.1.1, )"
+              "version": "[11.1.0, )"
             },
             "SQLitePCLRaw.bundle_green": {
               "target": "Package",

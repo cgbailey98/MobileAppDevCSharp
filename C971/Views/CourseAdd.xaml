@@ -55,6 +55,10 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
+                        <Label Grid.Row="7" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at Start Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="StartNotification" Grid.Row="7" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                        <Label Grid.Row="8" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at End Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="EndNotification" Grid.Row="8" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
 
                 </StackLayout>
