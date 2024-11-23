@@ -138,6 +138,12 @@ namespace C971.Services
             return courses;
         }
 
+        public static async Task<Course> GetCourseById(int courseId)
+        {
+            await Init();
+            return await _db.Table<Course>().Where(c => c.Id == courseId).FirstOrDefaultAsync();
+        }
+
         public static async Task UpdateCourse(int id, string name, DateTime startDate, DateTime endDate,
             string instructorName, string instructorPhone, string instructorEmail, Course.StatusType statusType, string notes, bool startNotification, bool endNotification) 
         {

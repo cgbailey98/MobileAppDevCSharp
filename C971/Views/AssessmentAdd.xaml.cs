@@ -19,43 +19,33 @@ public partial class AssessmentAdd : ContentPage
 
     async void SaveAssessment_OnClicked(object? sender, EventArgs e)
     {
-        var today = DateTime.Today;
-
         if (string.IsNullOrWhiteSpace(AssessmentName.Text))
         {
             await DisplayAlert("Missing Name", "Please enter a name.", "OK");
             return;
         }
 
-        if (StartDatePicker.Date == today)
+        Course associatedCourse = await DatabaseService.GetCourseById(_selectedCourseId);
+        if (associatedCourse == null)
         {
-            bool confirm = await DisplayAlert("Confirm Start Date", "Start Date is set to today. Is this correct?",
-                "Yes", "No");
-
-            if (!confirm)
-            {
-                return;
-            }
-        }
-
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddDays(1)))
-        {
-            await DisplayAlert("Invalid length", "The End Date must be at least one day after the Start Date.", "OK");
+            await DisplayAlert("Error", "Associated course not found.", "OK");
             return;
         }
 
-        //if (AssessmentTypePicker.SelectedIndex == -1)
-        //{
-        //    await DisplayAlert("Missing Assessment Type", "Please select an Assessment Type", "OK");
-        //    return;
-        //}
+        if (StartDatePicker.Date > EndDatePicker.Date)
+        {
+            await DisplayAlert("Invalid Date Range",
+                "The assessment Start Date must be before the assessment End Date.", "OK");
+            return;
+        }
 
-        //if (!Enum.TryParse(AssessmentTypePicker.SelectedItem.ToString(),
-        //        out Assessment.AssessmentType selectedAssessmentType))
-        //{
-        //    await DisplayAlert("Error", "Invalid Assessment Type selected.", "OK");
-        //    return;
-        //}
+        if (StartDatePicker.Date < associatedCourse.StartDate || EndDatePicker.Date > associatedCourse.EndDate)
+        {
+            await DisplayAlert("Invalid Date Range",
+                $"The assessment dates must be between {associatedCourse.StartDate:d} and {associatedCourse.EndDate:d}.",
+                "OK");
+            return;
+        }
 
         await DatabaseService.AddAssessment(_selectedCourseId, AssessmentName.Text, StartDatePicker.Date,
             EndDatePicker.Date, _selectedAssessmentType, StartNotification.IsToggled, EndNotification.IsToggled);

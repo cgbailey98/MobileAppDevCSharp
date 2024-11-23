@@ -21,7 +21,6 @@ public partial class AssessmentEdit : ContentPage
 
     async void SaveAssessment_OnClicked(object? sender, EventArgs e)
     {
-        var today = DateTime.Today;
 
         if (string.IsNullOrWhiteSpace(AssessmentName.Text))
         {
@@ -29,17 +28,25 @@ public partial class AssessmentEdit : ContentPage
             return;
         }
 
-        if (StartDatePicker.Date == today)
+        Course associatedCourse = await DatabaseService.GetCourseById(_courseId);
+        if (associatedCourse == null)
         {
-            bool confirm = await DisplayAlert("Confirm Start Date", "Start Date is set to today. Is that correct?",
-                "Yes", "No");
-
-            if (!confirm) return;
+            await DisplayAlert("Error", "Associated course not found.", "OK");
+            return;
         }
 
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddDays(1)))
+        if (StartDatePicker.Date > EndDatePicker.Date)
         {
-            await DisplayAlert("Invalid Length", "The End Date must be at least one day after the Start Date.", "OK");
+            await DisplayAlert("Invalid Date Range",
+                "The assessment Start Date must be before the assessment End Date.", "OK");
+            return;
+        }
+
+        if (StartDatePicker.Date < associatedCourse.StartDate || EndDatePicker.Date > associatedCourse.EndDate)
+        {
+            await DisplayAlert("Invalid Date Range",
+                $"The assessment dates must be between {associatedCourse.StartDate:d} and {associatedCourse.EndDate:d}.",
+                "OK");
             return;
         }
 
