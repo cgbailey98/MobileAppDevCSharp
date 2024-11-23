@@ -5,8 +5,8 @@
              Title="Term List">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="AddTerm" Text="Add Term" Clicked="AddTerm_OnClicked"></ToolbarItem>
-        <ToolbarItem x:Name="ClearDatabase" Text="Clear" Clicked="ClearDatabase_OnClicked"></ToolbarItem>
-        <ToolbarItem x:Name="LoadSampleData" Text="Load" Clicked="LoadSampleData_OnClicked"></ToolbarItem>
+        <!-- <ToolbarItem x:Name="ClearDatabase" Text="Clear" Clicked="ClearDatabase_OnClicked"></ToolbarItem> -->
+        <!-- <ToolbarItem x:Name="LoadSampleData" Text="Load" Clicked="LoadSampleData_OnClicked"></ToolbarItem> -->
 
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

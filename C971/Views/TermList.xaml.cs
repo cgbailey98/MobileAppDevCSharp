@@ -15,8 +15,6 @@ public partial class TermList : ContentPage
             await DatabaseService.LoadSampleData();
 
             Services.Settings.FirstRun = false;
-
-            await RefreshTermCollectionView();
         }
 
         await RefreshTermCollectionView();
@@ -34,20 +32,20 @@ public partial class TermList : ContentPage
         await Navigation.PushAsync(new TermAdd());
     }
 
-    private async void ClearDatabase_OnClicked(object? sender, EventArgs e) //TODO Make sure this method isn't in final submission!!
-    {
-        await DatabaseService.ClearSampleData();
-        await RefreshTermCollectionView();
-    }
+    //private async void ClearDatabase_OnClicked(object? sender, EventArgs e) //TODO Make sure this method isn't in final submission!!
+    //{
+    //    await DatabaseService.ClearSampleData();
+    //    await RefreshTermCollectionView();
+    //}
 
-    private async void LoadSampleData_OnClicked(object? sender, EventArgs e) //TODO Make sure this method isn't in final submission!!
-    {
-        if (Settings.FirstRun)
-        {
-            await DatabaseService.LoadSampleData();
-            await RefreshTermCollectionView();
-        }
-    }
+    //private async void LoadSampleData_OnClicked(object? sender, EventArgs e) //TODO Make sure this method isn't in final submission!!
+    //{
+
+
+    //    await DatabaseService.LoadSampleData();
+    //    await RefreshTermCollectionView();
+
+    //}
 
     private async void TermCollectionView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {

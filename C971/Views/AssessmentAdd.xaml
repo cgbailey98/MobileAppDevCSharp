@@ -42,10 +42,10 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
-                        <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at anticipated Start Date" VerticalTextAlignment="Center" />
-                        <Switch x:Name="StartNotification" Grid.Row="4" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
-                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify at anticipated End Date" VerticalTextAlignment="Center" />
-                        <Switch x:Name="EndNotification" Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                        <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Small" Text="Notify at anticipated Start Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="StartNotification" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center" IsToggled="True" VerticalOptions="Center" />
+                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Small" Text="Notify at anticipated End Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="EndNotification" Grid.Row="5" Grid.Column="1" HorizontalOptions="Center" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
                 </StackLayout>
             </ContentPage.Content>

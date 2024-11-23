@@ -60,6 +60,12 @@ namespace C971.Services
             return terms;
         }
 
+        public static async Task<Term> GetTermById(int termId)
+        {
+            await Init();
+            return await _db.Table<Term>().Where(t => t.Id == termId).FirstOrDefaultAsync();
+        }
+
         public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate) //List<Course> courses
         {
             await Init();
@@ -238,6 +244,9 @@ namespace C971.Services
         public static async Task LoadSampleData()
         {
             await Init();
+
+            //await ClearSampleData();
+
             Term term = new Term
             {
                 Name = "Term 1",
@@ -266,7 +275,7 @@ namespace C971.Services
                 CourseId = course.Id,
                 Name = "Intro to Math OA",
                 StartDate = DateTime.Now.AddDays(15),
-                EndDate = DateTime.Now.AddMonths(30),
+                EndDate = DateTime.Now.AddDays(30),
                 Type = Assessment.AssessmentType.Objective,
                 StartNotification = true,
                 EndNotification = true,

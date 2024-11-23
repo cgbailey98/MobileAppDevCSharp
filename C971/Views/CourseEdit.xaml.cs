@@ -91,17 +91,23 @@ public partial class CourseEdit : ContentPage
             return;
         }
 
-        if (StartDatePicker.Date == today)
+        Term associatedTerm = await DatabaseService.GetTermById(_selectedCourseId);
+        if (associatedTerm == null)
         {
-            bool confirm = await DisplayAlert("Confirm Start Date", "Start Date is set to today. Is that correct?",
-                "Yes", "No");
-
-            if (!confirm) return;
+            await DisplayAlert("Error", "Associated term not found.", "OK");
+            return;
         }
 
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddMonths(6)) || (EndDatePicker.Date > StartDatePicker.Date.AddMonths(6))) //TODO find out if there is a better way to do this. Thinking of using the '<=' in some way but unsure on how to correctly do this.
+        if (StartDatePicker.Date > EndDatePicker.Date)
         {
-            await DisplayAlert("Invalid Term Length", "The End Date must be 6 months after the Start Date.", "OK");
+            await DisplayAlert("Invalid Date Range", "The course Start Date must be before the course End Date.", "OK");
+            return;
+        }
+
+        if (StartDatePicker.Date < associatedTerm.StartDate || EndDatePicker.Date > associatedTerm.EndDate)
+        {
+            await DisplayAlert("Invalid Date Range",
+                $"The course dates must be between {associatedTerm.StartDate:d} and {associatedTerm.EndDate:d}.", "OK");
             return;
         }
 

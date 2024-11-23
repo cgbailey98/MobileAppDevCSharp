@@ -28,17 +28,23 @@ public partial class CourseAdd : ContentPage
             return;
         }
 
-        if (StartDatePicker.Date == today)
+        Term associatedTerm = await DatabaseService.GetTermById(_selectedCourseId);
+        if (associatedTerm == null)
         {
-            bool confirm = await DisplayAlert("Confirm Start Date", "Start Date is set to today. Is that correct?",
-                "Yes", "No");
-
-            if (!confirm) { return; }
+            await DisplayAlert("Error", "Associated term not found.", "OK");
+            return;
         }
 
-        if (EndDatePicker.Date < (StartDatePicker.Date.AddMonths(6)))
+        if (StartDatePicker.Date > EndDatePicker.Date)
         {
-            await DisplayAlert("Invalid term length", "The End Date must be 6 months after the Start Date.", "OK");
+            await DisplayAlert("Invalid Date Range", "The course Start Date must be before the course End Date.", "OK");
+            return;
+        }
+
+        if (StartDatePicker.Date < associatedTerm.StartDate || EndDatePicker.Date > associatedTerm.EndDate)
+        {
+            await DisplayAlert("Invalid Date Range",
+                $"The course dates must be between {associatedTerm.StartDate:d} and {associatedTerm.EndDate:d}.", "OK");
             return;
         }
 
@@ -97,12 +103,6 @@ public partial class CourseAdd : ContentPage
                 await DisplayAlert("Error", "Invalid status selected.", "OK");
                 return;
         }
-
-        //if (!Enum.TryParse(CourseStatusPicker.SelectedItem.ToString(), out Course.StatusType selectedStatus))
-        //{
-        //    await DisplayAlert("Error", "Invalid status selected.", "OK");
-        //    return;
-        //}
 
         await DatabaseService.AddCourse(_selectedCourseId, CourseName.Text, StartDatePicker.Date, EndDatePicker.Date,
             InstructorName.Text, InstructorPhone.Text, InstructorEmail.Text,
