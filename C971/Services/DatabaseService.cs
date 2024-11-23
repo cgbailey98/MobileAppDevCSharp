@@ -252,28 +252,40 @@ namespace C971.Services
                 TermId = term.Id,
                 Name = "Intro to Math",
                 StartDate = DateTime.Now,
-                EndDate = DateTime.Now.AddMonths(6),
+                EndDate = DateTime.Now.AddMonths(1),
                 InstructorName = "Anika Patel",
                 InstructorPhone = "555-123-4567",
                 InstructorEmail = "anika.patel@strimeuniversity.edu",
-                Status = Course.StatusType.Planned,
+                Status = Course.StatusType.InProgress,
             };
 
             await _db.InsertAsync(course);
 
-            Course course2 = new Course
+            Assessment objectiveAssessment = new Assessment
             {
-                TermId = term.Id,
-                Name = "Intro to Technology",
-                StartDate = DateTime.Now,
-                EndDate = DateTime.Now.AddMonths(6),
-                InstructorName = "Anika Patel",
-                InstructorPhone = "555-123-4567",
-                InstructorEmail = "anika.patel@strimeuniversity.edu",
-                Status = Course.StatusType.Planned,
+                CourseId = course.Id,
+                Name = "Intro to Math OA",
+                StartDate = DateTime.Now.AddDays(15),
+                EndDate = DateTime.Now.AddMonths(30),
+                Type = Assessment.AssessmentType.Objective,
+                StartNotification = true,
+                EndNotification = true,
             };
 
-            await _db.InsertAsync(course2);
+            await _db.InsertAsync(objectiveAssessment);
+
+            Assessment performanceAssessment = new Assessment
+            {
+                CourseId = course.Id,
+                Name = "Intro to Math PA",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(14),
+                Type = Assessment.AssessmentType.Performance,
+                StartNotification = true,
+                EndNotification = true,
+            };
+
+            await _db.InsertAsync(performanceAssessment);
         }
 
         public static async Task ClearSampleData()
@@ -282,6 +294,7 @@ namespace C971.Services
 
             await _db.DropTableAsync<Term>();
             await _db.DropTableAsync<Course>();
+            await _db.DropTableAsync<Assessment>();
 
             _db = null;
 
