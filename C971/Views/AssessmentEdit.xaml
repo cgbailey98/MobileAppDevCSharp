@@ -48,8 +48,10 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
-                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify" VerticalTextAlignment="Center" />
-                        <Switch x:Name="Notifications" Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                        <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify Start Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="StartNotification" Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
+                        <Label Grid.Row="6" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="Notify End Date" VerticalTextAlignment="Center" />
+                        <Switch x:Name="EndNotification" Grid.Row="6" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
 
                 </StackLayout>

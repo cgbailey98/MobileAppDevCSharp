@@ -164,7 +164,7 @@ namespace C971.Services
         #region Assessment methods
 
         public static async Task AddAssessment(int courseId, string name, DateTime startDate, DateTime endDate,
-            Assessment.AssessmentType assessmentType)
+            Assessment.AssessmentType assessmentType, bool startNotification, bool endNotification)
         {
             await Init();
 
@@ -174,7 +174,9 @@ namespace C971.Services
                 Name = name,
                 StartDate = startDate,
                 EndDate = endDate,
-                Type = assessmentType
+                Type = assessmentType,
+                StartNotification = startNotification,
+                EndNotification = endNotification
             };
 
             await _db.InsertAsync(assessment);
@@ -198,8 +200,16 @@ namespace C971.Services
             return assessments;
         }
 
+        public static async Task<IEnumerable<Assessment>> GetAssessments()
+        {
+            await Init();
+
+            var assessments = await _db.Table<Assessment>().ToListAsync();
+            return assessments;
+        }
+
         public static async Task UpdateAssessment(int id, string name, DateTime startDate, DateTime endDate,
-            Assessment.AssessmentType assessmentType)
+            Assessment.AssessmentType assessmentType, bool startNotification, bool endNotification)
         {
             await Init();
 
@@ -213,6 +223,8 @@ namespace C971.Services
                 assessmentQuery.StartDate = startDate;
                 assessmentQuery.EndDate = endDate;
                 assessmentQuery.Type = assessmentType;
+                assessmentQuery.StartNotification = startNotification;
+                assessmentQuery.EndNotification = endNotification;
 
                 await _db.UpdateAsync(assessmentQuery);
             }

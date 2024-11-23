@@ -58,7 +58,7 @@ public partial class AssessmentAdd : ContentPage
         //}
 
         await DatabaseService.AddAssessment(_selectedCourseId, AssessmentName.Text, StartDatePicker.Date,
-            EndDatePicker.Date, _selectedAssessmentType);
+            EndDatePicker.Date, _selectedAssessmentType, StartNotification.IsToggled, EndNotification.IsToggled);
         await Navigation.PopAsync();
     }
 

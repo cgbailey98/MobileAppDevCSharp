@@ -75,7 +75,7 @@ public partial class AssessmentEdit : ContentPage
         }
 
         await DatabaseService.UpdateAssessment(assessmentId, AssessmentName.Text,
-            StartDatePicker.Date, EndDatePicker.Date, selectedType);
+            StartDatePicker.Date, EndDatePicker.Date, selectedType, StartNotification.IsToggled, EndNotification.IsToggled);
 
         await Navigation.PopAsync();
     }

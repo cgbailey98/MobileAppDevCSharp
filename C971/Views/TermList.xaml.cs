@@ -22,6 +22,7 @@ public partial class TermList : ContentPage
         await RefreshTermCollectionView();
 
         ShowCourseNotifications();
+        ShowAssessmentNotifications();
     }
 	public TermList()
 	{
@@ -107,6 +108,62 @@ public partial class TermList : ContentPage
                     Subtitle = "Course End Reminder",
                     Description = $"{courseRecord.Name} ends today!",
                     ReturningData = "Hello course notification!",
+                    BadgeNumber = 42,
+                    Schedule = new NotificationRequestSchedule
+                    {
+                        NotifyTime = DateTime.Now.AddSeconds(5),
+                    }
+                };
+
+                await LocalNotificationCenter.Current.Show(notification);
+            }
+        }
+    }
+
+    private async void ShowAssessmentNotifications()
+    {
+        if (await LocalNotificationCenter.Current.AreNotificationsEnabled() == false)
+        {
+            await LocalNotificationCenter.Current.RequestNotificationPermission();
+        }
+
+        var assessmentList = await DatabaseService.GetAssessments();
+        var notifyRandom = new Random();
+
+        foreach (Assessment assessmentRecord in assessmentList)
+        {
+            if (assessmentRecord.StartNotification == true && assessmentRecord.StartDate == DateTime.Today)
+            {
+                var notifyId = notifyRandom.Next(1000);
+
+                var notification = new NotificationRequest
+                {
+                    NotificationId = notifyId,
+                    Title = "Assessment Notification",
+                    Subtitle = "Assessment Start Reminder",
+                    Description = $"{assessmentRecord.Name} starts today!",
+                    ReturningData = "Hello assessment notification!",
+                    BadgeNumber = 42,
+                    Schedule = new NotificationRequestSchedule
+                    {
+                        NotifyTime = DateTime.Now.AddSeconds(5),
+                    }
+                };
+
+                await LocalNotificationCenter.Current.Show(notification);
+            }
+
+            if (assessmentRecord.EndNotification == true && assessmentRecord.EndDate == DateTime.Today)
+            {
+                var notifyId = notifyRandom.Next(1000);
+
+                var notification = new NotificationRequest
+                {
+                    NotificationId = notifyId,
+                    Title = "Assessment Notification",
+                    Subtitle = "Assessment End Reminder",
+                    Description = $"{assessmentRecord.Name} ends today!",
+                    ReturningData = "Hello assessment notification!",
                     BadgeNumber = 42,
                     Schedule = new NotificationRequestSchedule
                     {

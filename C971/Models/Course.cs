@@ -31,6 +31,5 @@ namespace C971.Models
         public bool EndNotification { get; set; }
         public StatusType Status { get; set; } = StatusType.None;
         public string Notes { get; set; }
-        //public List<Assessment> Assessments { get; set; } = new List<Assessment>();
     }
 }
