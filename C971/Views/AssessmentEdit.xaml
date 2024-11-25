@@ -42,7 +42,6 @@
                         <Picker x:Name="AssessmentTypePicker" Title="Select an Assessment Type" Grid.Row="4" Grid.Column="1" FontSize="Medium" TitleColor="Teal">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>None</x:String>
                                     <x:String>Objective</x:String>
                                     <x:String>Performance</x:String>
                                 </x:Array>
