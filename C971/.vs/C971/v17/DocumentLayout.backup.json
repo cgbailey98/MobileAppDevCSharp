@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\MobileAppDevCSharp\\C971\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\views\\assessmentedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\assessmentedit.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,10 +27,6 @@
       "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:views\\termlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|c:\\mobileappdevcsharp\\c971\\services\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AAEDBD54-95B5-4A9F-8F1E-4F9D87427D4A}|C971.csproj|solutionrelative:services\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 247,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AssessmentAdd.xaml.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\AssessmentAdd.xaml.cs",
               "RelativeDocumentMoniker": "Views\\AssessmentAdd.xaml.cs",
@@ -55,20 +55,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AssessmentEdit.xaml.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\AssessmentEdit.xaml.cs",
               "RelativeDocumentMoniker": "Views\\AssessmentEdit.xaml.cs",
               "ToolTip": "C:\\MobileAppDevCSharp\\C971\\Views\\AssessmentEdit.xaml.cs",
               "RelativeToolTip": "Views\\AssessmentEdit.xaml.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAgwEcAAABXAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwEcAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T03:13:22.089Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DatabaseService.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Services\\DatabaseService.cs",
               "RelativeDocumentMoniker": "Services\\DatabaseService.cs",
@@ -81,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\MauiProgram.cs",
               "RelativeDocumentMoniker": "MauiProgram.cs",
@@ -107,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TermList.xaml",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml",
               "RelativeDocumentMoniker": "Views\\TermList.xaml",
@@ -120,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TermList.xaml.cs",
               "DocumentMoniker": "C:\\MobileAppDevCSharp\\C971\\Views\\TermList.xaml.cs",
               "RelativeDocumentMoniker": "Views\\TermList.xaml.cs",
